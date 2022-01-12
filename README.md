@@ -4,7 +4,7 @@ I will build a full-fledged API in Python using FastAPI.\
 I will learn the fundamentals of API design including routes, serialization/deserialization, schema validation, and models.\
 I will also learn about SQL, testing with pytest, and how to build out a CI/CD pipeline using GitHub actions.
 
-# Detail:
+# Details:
 + Features of API: Authentication, CRUD Operation, Validation, Documentation
 + SQL: PostgreSQL
 + Database Migration Tool: Alembic
