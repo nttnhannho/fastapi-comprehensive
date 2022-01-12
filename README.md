@@ -11,4 +11,4 @@ I will also learn about SQL, testing with pytest, and how to build out a CI/CD p
 + API Testing Tool: Postman
 + Deployment: Ubuntu/Heroku, Docker
 + CI/CD Pipeline: Github actions
-+ Language/Framework/Platform/Toolkit: Python, Flask, FastAPI, SQLAlchemy
++ Language/Framework/Platform/Toolkit: Python, FastAPI, SQLAlchemy
