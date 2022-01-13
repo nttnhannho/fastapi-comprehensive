@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, status, HTTPException
+from fastapi import FastAPI, status, HTTPException, Response
 from pydantic import BaseModel
 from random import randrange
 
@@ -34,6 +34,12 @@ def find_post(id_):
             return p
 
 
+def find_index_post(id_):
+    for i, p in enumerate(my_posts):
+        if p["id"] == id_:
+            return i
+
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -47,6 +53,7 @@ async def get_posts():
 @app.get("/posts/{id_}")
 async def get_post(id_: int):
     post = find_post(id_)
+
     if not post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"Post with id: {id_} was not found")
@@ -60,3 +67,15 @@ async def create_posts(post: Post):
     post_dict["id"] = randrange(0, 1000000)
     my_posts.append(post_dict)
     return {"data": post_dict}
+
+
+@app.delete("/posts/{id_}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_post(id_: int):
+    index = find_index_post(id_)
+
+    if not index:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"Post with id: {id_} does not exist")
+
+    my_posts.pop(index)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
