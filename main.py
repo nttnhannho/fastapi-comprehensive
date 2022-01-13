@@ -13,6 +13,20 @@ class Post(BaseModel):
     rating: Optional[int] = None
 
 
+my_posts = [
+    {
+        "title": "Title of post 1",
+        "content": "Content of post 1",
+        "id": 1
+    },
+    {
+        "title": "favorite food",
+        "content": "pizza",
+        "id": 2
+    }
+]
+
+
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -20,9 +34,9 @@ async def root():
 
 @app.get("/posts")
 async def get_posts():
-    return {"data": "This is your post"}
+    return {"data": my_posts}
 
 
 @app.post("/posts")
-async def create_post(post: Post):
+async def create_posts(post: Post):
     return {"data": post}
