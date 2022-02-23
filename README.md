@@ -1,4 +1,4 @@
-# python-api-comprehensive
+# fastapi-comprehensive
 Learn Python API development in one of the most comprehensive courses ever on the topic.\
 I will build a full-fledged API in Python using FastAPI.\
 I will learn the fundamentals of API design including routes, serialization/deserialization, schema validation, and models.\
